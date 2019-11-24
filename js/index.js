@@ -62,11 +62,30 @@ btn.textContent = siteContent["cta"]["button"];
 let headerImg = document.getElementById('cta-img');
 headerImg.setAttribute('src', siteContent['cta']['img-src']);
 
-// Set H4 text content 
-let h4 = document.querySelectorAll('h4');
+// Set H4 text content for main content
+let h4 = document.querySelectorAll('.main-content h4');
 h4[0].textContent = siteContent['main-content']['features-h4'];
 h4[1].textContent = siteContent['main-content']['about-h4'];
 h4[2].textContent = siteContent['main-content']['services-h4'];
 h4[3].textContent = siteContent['main-content']['product-h4'];
 h4[4].textContent = siteContent['main-content']['vision-h4'];
-h4[5].textContent = siteContent['contact']['contact-h4'];
+
+//Set H4 text contnent for contact
+let contactH4 = document.querySelector('.contact h4');
+contactH4.textContent = siteContent['contact']['contact-h4'];
+
+
+// Set paragraph text for main content
+let paragraph = document.querySelectorAll('.main-content p');
+paragraph[0].textContent = siteContent['main-content']['features-content'];
+paragraph[1].textContent = siteContent['main-content']['about-content'];
+paragraph[2].textContent = siteContent['main-content']['services-content'];
+paragraph[3].textContent = siteContent['main-content']['product-content'];
+paragraph[4].textContent = siteContent['main-content']['vision-content'];
+
+// Set paragraphs text for contact
+let contactParagraphs = document.querySelectorAll('.contact p');
+contactParagraphs[0].textContent = siteContent['contact']['address'];
+contactParagraphs[1].textContent = siteContent['contact']['phone'];
+contactParagraphs[2].textContent = siteContent['contact']['email'];
+
