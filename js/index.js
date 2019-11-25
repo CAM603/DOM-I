@@ -42,7 +42,7 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 // Setting Nav text content
-let navLinks = document.querySelectorAll('a');
+let navLinks = document.getElementsByTagName('a');
 navLinks[0].textContent = siteContent["nav"]["nav-item-1"];
 navLinks[1].textContent = siteContent["nav"]["nav-item-2"];
 navLinks[2].textContent = siteContent["nav"]["nav-item-3"];
@@ -50,9 +50,30 @@ navLinks[3].textContent = siteContent["nav"]["nav-item-4"];
 navLinks[4].textContent = siteContent["nav"]["nav-item-5"];
 navLinks[5].textContent = siteContent["nav"]["nav-item-6"];
 
+
+// Create new link tags
+let fbLink = document.createElement('a');
+fbLink.textContent = "FaceBook";
+
+let instaLink = document.createElement('a');
+instaLink.textContent = "Instagram";
+
+// Append another link to nav
+let navigation = document.querySelector('nav');
+navigation.appendChild(fbLink);
+
+// Prepend a link to the nav
+navigation.prepend(instaLink);
+
+// Set nav text color
+Array.from(navLinks).forEach(link => link.style.color = '#BADA22');
+
 // Set H1 text content 
 let h1 = document.querySelector('h1');
 h1.textContent = siteContent["cta"]['h1'];
+
+// Insert br tag in h1
+// ???
 
 // Set button text area
 let btn = document.querySelector('button');
@@ -61,6 +82,10 @@ btn.textContent = siteContent["cta"]["button"];
 // Set image src for header
 let headerImg = document.getElementById('cta-img');
 headerImg.setAttribute('src', siteContent['cta']['img-src']);
+
+// Set image across screen
+let midImg = document.getElementById('middle-img');
+midImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
 
 // Set H4 text content for main content
 let h4 = document.querySelectorAll('.main-content h4');
@@ -83,9 +108,12 @@ paragraph[2].textContent = siteContent['main-content']['services-content'];
 paragraph[3].textContent = siteContent['main-content']['product-content'];
 paragraph[4].textContent = siteContent['main-content']['vision-content'];
 
-// Set paragraphs text for contact
+// Set paragraph text for contact
 let contactParagraphs = document.querySelectorAll('.contact p');
 contactParagraphs[0].textContent = siteContent['contact']['address'];
 contactParagraphs[1].textContent = siteContent['contact']['phone'];
 contactParagraphs[2].textContent = siteContent['contact']['email'];
 
+// Set paragraph text for copyright
+let copyParagraph = document.querySelector('footer p');
+copyParagraph.textContent = siteContent['footer']['copyright'];
