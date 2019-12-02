@@ -1,46 +1,58 @@
 let clock = document.querySelector('.digits');
+
+// Assign elements
 let secondsOne = document.getElementById('secondOnes');
 let secondsTen = document.getElementById('secondTens');
 let msTen = document.getElementById('msTens');
 let msHundred = document.getElementById('msHundreds');
 
-let secondsOneCount = 0;
-let secondsTenCount = 0;
-let msTenCount = 0;
-let msHundredCount = 0;
+// Assign starting values
+let secondsOneNum = 0;
+let secondsTenNum = 0;
+let msTenNum = 0;
+let msHundredNum = 0;
 
+// Fun style here
 setInterval(function() {
     clock.style.background = clock.style.background === 'blue' ? 'red' : 'blue'
 }, 2000);
 
+// Create function that changes text to red
+let text = document.querySelectorAll('.digit');
 
+let colorRed = function() {
+    text.forEach(el => el.style.color = 'red')
+}
+
+// Create function to start timer
 function start() {
     let timer = setInterval(function() {
-        msTenCount += 1;
-        msTen.textContent = msTenCount;
+        msTenNum += 1;
+        msTen.textContent = msTenNum;
 
-        if (msTenCount === 10) {
+        if (msTenNum === 10) {
             msTen.textContent = 0;
-            msHundredCount += 1;
-            msHundred.textContent = msHundredCount;
-            msTenCount = 0;
+            msHundredNum += 1;
+            msHundred.textContent = msHundredNum;
+            msTenNum = 0;
         }
 
-        if (msHundredCount === 10) {
+        if (msHundredNum === 10) {
             msHundred.textContent = 0;
-            secondsOneCount += 1;
-            secondsOne.textContent = secondsOneCount;
-            msHundredCount = 0;
+            secondsOneNum += 1;
+            secondsOne.textContent = secondsOneNum;
+            msHundredNum = 0;
         }
 
-        if (secondsOneCount === 10) {
+        if (secondsOneNum === 10) {
             secondsOne.textContent = 0;
-            secondsTenCount += 1;
-            secondsTen.textContent = secondsTenCount;
-            secondsOneCount = 0;
+            secondsTenNum += 1;
+            secondsTen.textContent = secondsTenNum;
+            secondsOneNum = 0;
         }
-        if (secondsTenCount === 1) {
+        if (secondsTenNum === 1) {
             clearInterval(timer);
+            colorRed();
         }
 
     }, 10);
