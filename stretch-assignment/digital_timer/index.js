@@ -75,3 +75,24 @@ body.style.flexDirection = 'column';
 buttonStart.addEventListener('click', () => {
     start();
 }, {once : true});
+
+// Add reset button
+let buttonReset = document.createElement('button');
+buttonReset.classList.add('reset');
+buttonReset.textContent = 'Reset'
+body.appendChild(buttonReset);
+
+// Create click event to rest timer
+buttonReset.addEventListener('click', () => {
+    msTen.textContent = '-';
+    msHundred.textContent = '-';
+    secondsTen.textContent = '-';
+    secondsOne.textContent = '-';
+    secondsOneNum = 0;
+    secondsTenNum = 0;
+    msTenNum = 0;
+    msHundredNum = 0;
+    buttonStart.addEventListener('click', () => {
+        start();
+    }, {once : true});
+})
