@@ -12,16 +12,16 @@ let secondsTenNum = 0;
 let msTenNum = 0;
 let msHundredNum = 0;
 
-// Fun style here
-setInterval(function() {
-    clock.style.background = clock.style.background === 'blue' ? 'lightGreen' : 'blue'
-}, 2000);
-
 // Create function that changes text to red
 let text = document.querySelectorAll('.digit');
 
 let colorRed = function() {
     text.forEach(el => el.style.color = 'red')
+}
+
+// Create function that changes text to black
+let colorBlack = function() {
+    text.forEach(el => el.style.color = 'black')
 }
 
 // Create function to start timer
@@ -70,6 +70,7 @@ buttonStart.textContent = 'Start';
 body.appendChild(buttonStart);
 body.style.display = 'flex';
 body.style.flexDirection = 'column';
+body.style.justifyContent = 'center'
 
 // Create click event on start button to start timer
 buttonStart.addEventListener('click', () => {
@@ -92,7 +93,38 @@ buttonReset.addEventListener('click', () => {
     secondsTenNum = 0;
     msTenNum = 0;
     msHundredNum = 0;
+    colorBlack();
     buttonStart.addEventListener('click', () => {
         start();
     }, {once : true});
+});
+
+// Add Style to timer
+body.style.border = 'solid black 5px';
+body.style.width = '50%';
+body.style.borderRadius = '2rem';
+body.style.background = 'gray';
+
+let buttons = document.querySelectorAll('.start, .reset');
+buttons.forEach(el => {
+    el.style.width = '50%';
+    el.style.padding = '10px';
+    el.style.borderRadius = '2rem';
+    el.style.margin = '5px';
+    el.style.background = 'slateGray';
+    el.style.border = 'black solid 2px';
+    el.style.fontSize = '1.5rem';
+    el.style.outline = 'none'
 })
+
+clock.style.width = '100%';
+clock.style.display = 'flex';
+clock.style.justifyContent = 'center';
+clock.style.borderRadius = '1.5rem';
+
+let doc = document.querySelector('html');
+doc.style.display = 'flex';
+doc.style.justifyContent = 'center';
+doc.style.height = '100vh';
+doc.style.alignItems = 'center';
+doc.style.background = 'black';
