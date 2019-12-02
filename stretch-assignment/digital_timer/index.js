@@ -14,7 +14,7 @@ let msHundredNum = 0;
 
 // Fun style here
 setInterval(function() {
-    clock.style.background = clock.style.background === 'blue' ? 'red' : 'blue'
+    clock.style.background = clock.style.background === 'blue' ? 'lightGreen' : 'blue'
 }, 2000);
 
 // Create function that changes text to red
@@ -59,3 +59,19 @@ function start() {
     
 }
 //start()
+
+// Add a start button
+let body = document.querySelector('body');
+
+let buttonStart = document.createElement('button');
+buttonStart.classList.add('start');
+buttonStart.textContent = 'Start';
+
+body.appendChild(buttonStart);
+body.style.display = 'flex';
+body.style.flexDirection = 'column';
+
+// Create click event on start button to start timer
+buttonStart.addEventListener('click', () => {
+    start();
+}, {once : true});
