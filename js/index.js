@@ -37,6 +37,13 @@ const siteContent = {
   },
 };
 
+const siteContentTwo = {
+  "cta": {
+    "h1": "DOM Is Grrrreat!",
+    "button": "Letsa Go!",
+    "img-src": "img/header-img.png"
+  }
+};
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
@@ -117,3 +124,27 @@ contactParagraphs[2].textContent = siteContent['contact']['email'];
 // Set paragraph text for copyright
 let copyParagraph = document.querySelector('footer p');
 copyParagraph.textContent = siteContent['footer']['copyright'];
+
+// Change some things when clicking get started button
+
+let content = document.querySelectorAll('.text-content, .contact, .cta, header');
+let background = document.querySelector('body');
+
+btn.addEventListener('click', (event) => {
+  h1.textContent = siteContentTwo["cta"]['h1'];
+  event.target.textContent = siteContentTwo["cta"]["button"];
+  event.target.style.background = 'purple';
+  event.target.style.color = '#BADA22';
+  background.style.background = 'purple';
+  Array.from(navLinks).forEach(link => {
+    link.style.color = 'black';
+    link.style.padding = '5px';
+  }); 
+  content.forEach(el => {
+    el.style.background = '#BADA22';
+    el.style.padding = '5px';
+    el.style.boxShadow = '5px 5px 5px black';
+    el.style.textAlign = 'center';
+  });
+});
+
