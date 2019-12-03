@@ -37,6 +37,114 @@ const siteContent = {
   },
 };
 
+const siteContentTwo = {
+  "cta": {
+    "h1": "DOM Is Grrrreat!",
+    "button": "Letsa Go!",
+    "img-src": "img/header-img.png"
+  }
+};
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
+
+// Setting Nav text content
+let navLinks = document.getElementsByTagName('a');
+navLinks[0].textContent = siteContent["nav"]["nav-item-1"];
+navLinks[1].textContent = siteContent["nav"]["nav-item-2"];
+navLinks[2].textContent = siteContent["nav"]["nav-item-3"];
+navLinks[3].textContent = siteContent["nav"]["nav-item-4"];
+navLinks[4].textContent = siteContent["nav"]["nav-item-5"];
+navLinks[5].textContent = siteContent["nav"]["nav-item-6"];
+
+
+// Create new link tags
+let fbLink = document.createElement('a');
+fbLink.textContent = "FaceBook";
+
+let instaLink = document.createElement('a');
+instaLink.textContent = "Instagram";
+
+// Append another link to nav
+let navigation = document.querySelector('nav');
+navigation.appendChild(fbLink);
+
+// Prepend a link to the nav
+navigation.prepend(instaLink);
+
+// Set nav text color
+Array.from(navLinks).forEach(link => link.style.color = '#BADA22');
+
+// Set H1 text content 
+let h1 = document.querySelector('h1');
+h1.textContent = siteContent["cta"]['h1'];
+
+// Insert br tag in h1
+// ???
+
+// Set button text area
+let btn = document.querySelector('button');
+btn.textContent = siteContent["cta"]["button"];
+
+// Set image src for header
+let headerImg = document.getElementById('cta-img');
+headerImg.setAttribute('src', siteContent['cta']['img-src']);
+
+// Set image across screen
+let midImg = document.getElementById('middle-img');
+midImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+// Set H4 text content for main content
+let h4 = document.querySelectorAll('.main-content h4');
+h4[0].textContent = siteContent['main-content']['features-h4'];
+h4[1].textContent = siteContent['main-content']['about-h4'];
+h4[2].textContent = siteContent['main-content']['services-h4'];
+h4[3].textContent = siteContent['main-content']['product-h4'];
+h4[4].textContent = siteContent['main-content']['vision-h4'];
+
+//Set H4 text contnent for contact
+let contactH4 = document.querySelector('.contact h4');
+contactH4.textContent = siteContent['contact']['contact-h4'];
+
+
+// Set paragraph text for main content
+let paragraph = document.querySelectorAll('.main-content p');
+paragraph[0].textContent = siteContent['main-content']['features-content'];
+paragraph[1].textContent = siteContent['main-content']['about-content'];
+paragraph[2].textContent = siteContent['main-content']['services-content'];
+paragraph[3].textContent = siteContent['main-content']['product-content'];
+paragraph[4].textContent = siteContent['main-content']['vision-content'];
+
+// Set paragraph text for contact
+let contactParagraphs = document.querySelectorAll('.contact p');
+contactParagraphs[0].textContent = siteContent['contact']['address'];
+contactParagraphs[1].textContent = siteContent['contact']['phone'];
+contactParagraphs[2].textContent = siteContent['contact']['email'];
+
+// Set paragraph text for copyright
+let copyParagraph = document.querySelector('footer p');
+copyParagraph.textContent = siteContent['footer']['copyright'];
+
+// Change some things when clicking get started button
+
+let content = document.querySelectorAll('.text-content, .contact, .cta, header');
+let background = document.querySelector('body');
+
+btn.addEventListener('click', (event) => {
+  h1.textContent = siteContentTwo["cta"]['h1'];
+  event.target.textContent = siteContentTwo["cta"]["button"];
+  event.target.style.background = 'purple';
+  event.target.style.color = '#BADA22';
+  background.style.background = 'purple';
+  Array.from(navLinks).forEach(link => {
+    link.style.color = 'black';
+    link.style.padding = '5px';
+  }); 
+  content.forEach(el => {
+    el.style.background = '#BADA22';
+    el.style.padding = '5px';
+    el.style.boxShadow = '5px 5px 5px black';
+    el.style.textAlign = 'center';
+  });
+});
+
