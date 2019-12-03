@@ -50,13 +50,20 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 // Setting Nav text content
 let navLinks = document.getElementsByTagName('a');
-navLinks[0].textContent = siteContent["nav"]["nav-item-1"];
-navLinks[1].textContent = siteContent["nav"]["nav-item-2"];
-navLinks[2].textContent = siteContent["nav"]["nav-item-3"];
-navLinks[3].textContent = siteContent["nav"]["nav-item-4"];
-navLinks[4].textContent = siteContent["nav"]["nav-item-5"];
-navLinks[5].textContent = siteContent["nav"]["nav-item-6"];
 
+// Long way
+
+// navLinks[0].textContent = siteContent["nav"]["nav-item-1"];
+// navLinks[1].textContent = siteContent["nav"]["nav-item-2"];
+// navLinks[2].textContent = siteContent["nav"]["nav-item-3"];
+// navLinks[3].textContent = siteContent["nav"]["nav-item-4"];
+// navLinks[4].textContent = siteContent["nav"]["nav-item-5"];
+// navLinks[5].textContent = siteContent["nav"]["nav-item-6"];
+
+// Shortcut with for loop instead
+for (let i = 0; i < navLinks.length; i++) {
+  navLinks[i].textContent = siteContent["nav"]["nav-item-" + i]
+}
 
 // Create new link tags
 let fbLink = document.createElement('a');
@@ -96,6 +103,7 @@ midImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
 
 // Set H4 text content for main content
 let h4 = document.querySelectorAll('.main-content h4');
+
 h4[0].textContent = siteContent['main-content']['features-h4'];
 h4[1].textContent = siteContent['main-content']['about-h4'];
 h4[2].textContent = siteContent['main-content']['services-h4'];
